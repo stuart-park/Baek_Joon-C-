@@ -26,10 +26,3 @@ public:
 			return ans;
 	}
 };
-
-int main() {
-	ThePalindrome pal;
-	string a = "qwerty";
-	int ans = pal.find(a);
-	cout << ans;
-}

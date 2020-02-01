@@ -12,10 +12,3 @@ public:
 				return i + 1;
 	}
 };
-
-int main() {
-	NumberMagicEasy a;
-	string b = "YNYY";
-	int c=a.theNumber(b);
-	cout << c;
-}

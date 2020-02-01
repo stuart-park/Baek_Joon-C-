@@ -27,11 +27,3 @@ public:
 		return max(temp1.back(), temp2.back());
 	}
 };
-
-
-int main() {
-	BadNeightbors bn;
-	vector <int> k = {  };
-	int a=bn.maxDonations(k);
-	cout << a;
-}

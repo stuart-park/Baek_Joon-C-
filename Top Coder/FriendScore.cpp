@@ -32,10 +32,3 @@ public:
 		return ans[num-1];
 	}
 };
-
-int main() {
-	FriendScore score;
-	vector<string> friends = { "NNNNYNNNNN", "NNNNYNYYNN", "NNNYYYNNNN", "NNYNNNNNNN", "YYYNNNNNNY","NNYNNNNNYN","NYNNNNNYNN","NYNNNNYNNN","NNNNNYNNNN","NNNNYNNNNN" };
-	int a=score.highestScore(friends);
-	cout << a;
-}
