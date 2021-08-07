@@ -1,22 +1,28 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
+#include <queue>
+#define INF 9999999
 using namespace std;
 
-int v, ans = 0;
-int visited[100001] = { false, };
+int v, farest_vertex = 0, max_dist = 0;
+int dist[100001];
+bool visited[100001];
 vector<pair<int, int>> graph[100001];
 
-void dfs(int vertex, int total_dist) {
-	for (int i = 0; i < graph[vertex].size(); i++) {
-		if (!visited[graph[vertex][i].first]) {
-			visited[graph[vertex][i].first] = true;
-			dfs(graph[vertex][i].first, total_dist + graph[vertex][i].second);
-		}
+void dfs(int vertex, int dist) {
+	visited[vertex] = true;
+
+	if (max_dist < dist) {
+		max_dist = dist;
+		farest_vertex = vertex;
 	}
 
-	if (total_dist > ans)
-		ans = total_dist;
+	for (int i = 0; i < graph[vertex].size(); i++) {
+		if (!visited[graph[vertex][i].first]) {
+			dfs(graph[vertex][i].first, graph[vertex][i].second + dist);
+		}
+	}
 }
 
 int main() {
@@ -37,18 +43,10 @@ int main() {
 		}
 	}
 
-	for (int i = 1; i <= v; i++) {
-		if (!visited[i]) {
-			visited[i] = true;
-			for (int j = 0; j < graph[i].size(); j++) {
-				if (!visited[graph[i][j].first]) {
-					visited[graph[i][j].first] = true;
-					dfs(graph[i][j].first, graph[i][j].second);
-				}
-			}
-		}
-		memset(visited, false, sizeof(visited));
-	}
+	dfs(1, 0);
+	memset(visited, false, sizeof(visited));
+	max_dist = 0;
+	dfs(farest_vertex, 0);
 
-	cout << ans << "\n";
+	cout << max_dist << "\n";
 }
