@@ -1,4 +1,4 @@
-	package com.ssafy.algo;
+package com.ssafy.algo;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
