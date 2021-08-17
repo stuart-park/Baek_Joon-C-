@@ -47,7 +47,7 @@ public class JUNGOL_1828 {
 			if (i == N || j == N)
 				break;
 			
-			if (temp[i].min_temp < temp[j].max_temp) {
+			if (temp[i].min_temp <= temp[j].max_temp) {
 				j++;
 				continue;
 			} else {
