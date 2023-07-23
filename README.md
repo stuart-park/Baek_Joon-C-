@@ -1,1 +1,1 @@
-# Programming_Exercise
+# Algorithm Exercise
